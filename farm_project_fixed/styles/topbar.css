@@ -1,0 +1,127 @@
+/* ═══ topbar.css — תפריט הגדרות + לוגו פינה ═══ */
+.topbar {
+  display: none !important;
+}
+
+.settings-btn {
+  position: fixed;
+  top: 14px;
+  left: 14px;
+  z-index: 9999;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  border: 2.5px solid rgba(240, 176, 48, 0.5);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
+  cursor: pointer;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .2s, box-shadow .2s;
+  font-family: 'Baloo 2', Arial, sans-serif;
+}
+
+.settings-btn:hover {
+  transform: rotate(30deg) scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.settings-menu {
+  position: fixed;
+  top: 68px;
+  left: 14px;
+  z-index: 9998;
+  background: rgba(255, 252, 245, 0.97);
+  backdrop-filter: blur(12px);
+  border-radius: 18px;
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.16);
+  border: 2px solid rgba(240, 176, 48, 0.3);
+  min-width: 200px;
+  overflow: hidden;
+  display: none;
+  flex-direction: column;
+  animation: menuPop .18s ease;
+  font-family: 'Baloo 2', Arial, sans-serif;
+}
+
+.settings-menu.open {
+  display: flex;
+}
+
+@keyframes menuPop {
+  from {
+    opacity: 0;
+    transform: scale(0.88) translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.settings-user {
+  padding: 12px 18px 10px;
+  font-size: 13px;
+  color: #999;
+  border-bottom: 1px solid #f0e4cc;
+  font-weight: 700;
+}
+
+.settings-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 18px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #3a2010;
+  text-decoration: none;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: right;
+  cursor: pointer;
+  transition: background .15s;
+  direction: rtl;
+  font-family: 'Baloo 2', Arial, sans-serif;
+}
+
+.settings-item:hover {
+  background: #fdf0d8;
+}
+
+.settings-item.danger {
+  color: #d03030;
+}
+
+.settings-item.danger:hover {
+  background: #fff0f0;
+}
+
+.corner-logo {
+  position: fixed;
+  bottom: 16px;
+  right: 14px;
+  z-index: 9990;
+  opacity: 0.55;
+  pointer-events: auto;
+  transition: opacity .3s, transform .3s;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.22));
+}
+
+.corner-logo:hover {
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+.corner-logo img {
+  width: 74px;
+  height: 74px;
+  object-fit: contain;
+  border-radius: 16px;
+  box-shadow: 0 4px 0 rgba(192,128,0,0.35);
+}

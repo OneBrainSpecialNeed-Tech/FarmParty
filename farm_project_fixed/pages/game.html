@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="he">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <title>מסיבה בחווה 🐮</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;display=swap" rel="stylesheet" />
+
+    <link href="../styles/game.css" rel="stylesheet" />
+    <link href="../styles/topbar.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="app">
+        <!-- ⚙️ הגדרות -->
+        <button class="settings-btn" id="settingsBtn" title="הגדרות">⚙️</button>
+        <div class="settings-menu" id="settingsMenu">
+            <div class="settings-user" id="settingsUser">שלום!</div>
+            <a class="settings-item" href="../index.html">🏠 דף בית</a>
+            <a class="settings-item" href="instructions.html">📖 הוראות</a>
+            <a class="settings-item" href="highscores.html">🏆 שיאים</a>
+            <a class="settings-item" href="results.html">📋 התוצאות שלי</a>
+        <button class="settings-item danger" id="settingsLogout">🚪 התנתקות</button>
+        </div>
+        <div class="corner-logo"><img alt="מוחאחד" src="../assets/logo.png" /></div>
+        <!-- ══════════════ HOME ══════════════ -->
+        <div class="screen active" id="home">
+            <div class="home-sparkles" id="homeSparkles"></div>
+            <div class="home-clouds" id="homeClouds"></div>
+            <div class="home-sun">☀️</div>
+            <!-- Name form -->
+            <form class="name-form" id="nameForm">
+                <label for="nameInput">שחקן/ית:</label>
+                <input autocomplete="off" class="name-input" id="nameInput" maxlength="20" placeholder="הכנס שם..."
+                    type="text" />
+                <button class="name-save-btn" type="submit">✓</button>
+            </form>
+            <div class="name-greet" id="nameGreet"></div>
+            <div class="home-title-card">
+                <div class="home-title" id="homeTitle">🐮 מסיבה בחווה 🎉</div>
+                <div class="home-sub">בחר את החיה שלך!</div>
+            </div>
+            <div class="car-wrap">
+                <div class="car-stage" id="carStage"></div>
+            </div>
+            <div class="car-dots" id="carDots"></div>
+            <div class="car-cat-label" id="carCatLabel"></div>
+            <div class="car-score-label" id="carScoreLabel"></div>
+            <div class="level-btns">
+                <button class="lbtn easy" id="btnEasy">🌿 רמה קלה</button>
+                <button class="lbtn hard" id="btnHard">🔥 רמה קשה</button>
+            </div>
+            <div class="ground-strip"></div>
+        </div>
+        <!-- ══════════════ GAME ══════════════ -->
+        <div class="screen" id="gameScreen">
+            <div class="hud">
+                <div class="hud-item">
+                    <span class="hud-label">מסלול</span>
+                    <span class="hud-val" id="htk">-</span>
+                </div>
+                <div class="hud-item">
+                    <span class="hud-label">שאלות</span>
+                    <span class="hud-val gold" id="hq">0/12</span>
+                </div>
+                <div class="hud-item">
+                    <span class="hud-label">שלב</span>
+                    <span class="hud-val" id="hphase">1</span>
+                </div>
+                <div class="hud-item">
+                    <span class="hud-label">אסף</span>
+                    <span class="hud-val gold" id="hsc">0</span>
+                </div>
+                <div class="hud-item">
+                    <span class="hud-label">רצף</span>
+                    <span class="hud-val" id="hstreak">x0</span>
+                </div>
+                <div class="hud-item">
+                    <span class="hud-label">חיים</span>
+                    <span class="hud-lives" id="hlives">❤️❤️❤️</span>
+                </div>
+                <button class="nav-btn" id="backBtn">⬅ חזרה</button>
+                <button class="nav-btn" id="instrBtn">📖 הוראות</button>
+                <img alt="מוחאחד" src="../assets/logo.jpg"
+                    style="height:32px;border-radius:6px;margin-right:4px;opacity:0.85;" />
+                <button class="nav-btn" id="logoutBtn"
+                    style="background:rgba(200,50,50,.4);border-color:rgba(255,100,100,.6);">🚪 יציאה</button>
+            </div>
+            <canvas id="gc"></canvas>
+            <div class="controls">
+                <div class="ctrl-group">
+                    <div class="ctrl-btn" id="btnLeft">◀</div>
+                    <div class="ctrl-btn" id="btnRight">▶</div>
+                </div>
+                <div class="ctrl-group">
+                    <div class="ctrl-btn shoot-btn" id="btnShoot">🌟</div>
+                    <div class="ctrl-btn jump-btn" id="btnJump">⬆<br />JUMP</div>
+                </div>
+            </div>
+        </div>
+        <!-- ══════════════ RESULTS ══════════════ -->
+        <div class="screen" id="results">
+            <div class="rbox">
+                <div class="rtrophy" id="rtrophy">🏆</div>
+                <div class="rstar-row" id="rstarrow">
+                    <span class="rstar">⭐</span><span class="rstar">⭐</span><span class="rstar">⭐</span>
+                </div>
+                <div class="rtitle" id="rtitle">סיימת!</div>
+                <div class="rscore" id="rscore">0/12</div>
+                <div class="rmsg" id="rmsg"></div>
+                <button class="pxbtn green" id="btnPlayAgain">🔄 שחק שוב</button>
+                <button class="pxbtn blue" id="btnHome">🏠 מסלולים</button>
+            </div>
+        </div>
+        <!-- ══════════════ FLAG OVERLAY ══════════════ -->
+        <div id="flagOverlay">
+            <canvas id="flagCanvas"></canvas>
+        </div>
+        <!-- ══════════════ QUESTION OVERLAY ══════════════ -->
+        <div class="qov" id="qov">
+            <div class="qbox">
+                <div class="timer-bar-wrap">
+                    <div class="timer-bar" id="timerBar"></div>
+                </div>
+                <div class="qcat" id="qcat"></div>
+                <div class="qtxt" id="qtxt"></div>
+                <div class="qopts" id="qopts"></div>
+                <div class="qfb" id="qfb"></div>
+            </div>
+        </div>
+        <!-- ══════════════ CUSTOM ALERT ══════════════ -->
+        <div id="custom-alert">
+            <div class="alert-box">
+                <div class="alert-icon" id="alertIcon">⚠️</div>
+                <div class="alert-title" id="alertTitle">שים לב!</div>
+                <div class="alert-msg" id="alertMsg"></div>
+                <button class="alert-ok" id="alertOk">אישור</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../scripts/game.js"></script>
+</body>
+
+</html>

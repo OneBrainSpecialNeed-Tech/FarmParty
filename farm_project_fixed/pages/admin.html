@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>לוח בקרה — מנהל 🛠️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="../styles/theme.css" rel="stylesheet" />
+  <link href="../styles/admin.css" rel="stylesheet" />
+  <link href="../styles/topbar.css" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- כפתור הגדרות אחיד -->
+  <button class="settings-btn" id="settingsBtn" title="הגדרות">⚙️</button>
+  <div class="settings-menu" id="settingsMenu">
+    <div class="settings-user" id="settingsUser">שלום!</div>
+    <a class="settings-item" href="../index.html">🏠 דף בית</a>
+    <a class="settings-item" href="instructions.html">📖 הוראות</a>
+    <a class="settings-item" href="highscores.html">🏆 שיאים</a>
+    <a class="settings-item" href="results.html">📋 התוצאות שלי</a>
+        <button class="settings-item danger" id="settingsLogout">🚪 התנתקות</button>
+  </div>
+  <div class="corner-logo"><img alt="מוחאחד" src="../assets/logo.png" /></div>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <img alt="לוגו" src="../assets/logo.png" />
+      <div>
+        <h1>🛠️ לוח בקרה — מנהל</h1>
+        <p id="adminName">טוען...</p>
+      </div>
+    </div>
+    <button class="logout-btn" id="logoutBtn">התנתקות 🚪</button>
+  </div>
+
+  <!-- תוכן ראשי -->
+  <div class="admin-wrap">
+
+    <!-- כרטיסי סטטיסטיקה -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="ico">👥</div>
+        <div class="num" id="statUsers">—</div>
+        <div class="lbl">משתמשים רשומים</div>
+      </div>
+      <div class="stat-card">
+        <div class="ico">👑</div>
+        <div class="num" id="statAdmins">—</div>
+        <div class="lbl">מנהלים</div>
+      </div>
+      <div class="stat-card">
+        <div class="ico">🎮</div>
+        <div class="num" id="statGames">—</div>
+        <div class="lbl">משחקים שהושלמו</div>
+      </div>
+      <div class="stat-card">
+        <div class="ico">🏆</div>
+        <div class="num" id="statBest">—</div>
+        <div class="lbl">שיא כולל</div>
+      </div>
+    </div>
+
+    <!-- טבלת משתמשים -->
+    <div class="section-card">
+      <div class="section-head">👥 כל המשתמשים — פרטים מלאים</div>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>שם משתמש</th>
+              <th class="col-display">שם תצוגה</th>
+              <th class="col-pw">סיסמה</th>
+              <th>תפקיד</th>
+            </tr>
+          </thead>
+          <tbody id="usersRows">
+            <tr class="empty-row"><td colspan="5">טוען...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- טבלת תוצאות -->
+    <div class="section-card">
+      <div class="section-head">📊 תוצאות משחקים — הכל</div>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>שחקן</th>
+              <th>מסלול / חיה</th>
+              <th>ניקוד</th>
+              <th>תאריך</th>
+            </tr>
+          </thead>
+          <tbody id="resultsRows">
+            <tr class="empty-row"><td colspan="4">טוען תוצאות...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div><!-- /admin-wrap -->
+
+  <script src="../scripts/admin.js"></script>
+</body>
+</html>

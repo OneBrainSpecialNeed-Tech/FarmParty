@@ -1,0 +1,395 @@
+/* party.css — דף מסיבת הסיום */
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 16px 40px;
+  overflow: hidden;
+}
+
+/* עיטורי קונפטי רקע */
+body::before {
+  content: '🎉 🎊 ⭐ 🎈 🎊 🎉 ⭐ 🎈 🎊';
+  position: fixed;
+  top: -20px;
+  left: -10px;
+  right: -10px;
+  font-size: 28px;
+  letter-spacing: 14px;
+  line-height: 1.4;
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+  word-break: break-all;
+  white-space: normal;
+  text-align: center;
+  padding: 10px;
+}
+
+.party-box {
+  position: relative;
+  z-index: 1;
+  width: min(680px, 96vw);
+  background: var(--cream);
+  border: var(--card-border);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  padding: clamp(28px, 5vw, 48px);
+  text-align: center;
+}
+
+.party-box h1 {
+  font-size: clamp(26px, 5vw, 42px);
+  font-weight: 900;
+  color: var(--brown-dark);
+  text-shadow: 0 4px 0 rgba(240, 176, 48, 0.45);
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.party-animals {
+  font-size: clamp(44px, 10vw, 68px);
+  letter-spacing: 8px;
+  margin: 18px 0 22px;
+  animation: bounce 1.2s ease-in-out infinite alternate;
+  display: block;
+  filter: drop-shadow(0 6px 0 rgba(0, 0, 0, 0.08));
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0) scale(1);
+  }
+
+  to {
+    transform: translateY(-12px) scale(1.05);
+  }
+}
+
+.score-box {
+  background: linear-gradient(135deg, var(--gold-pale), #fff3cc);
+  border: 3px solid var(--gold);
+  border-radius: 20px;
+  padding: 20px 24px;
+  margin: 0 0 24px;
+  box-shadow: 0 4px 0 var(--brown-light);
+}
+
+.score-box h2 {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--brown-dark);
+  margin-bottom: 6px;
+}
+
+.score-box p {
+  font-size: clamp(22px, 4vw, 32px);
+  font-weight: 900;
+  color: var(--brown-mid);
+}
+
+/* כפתור חזרה */
+.party-box a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font);
+  font-weight: 900;
+  font-size: 18px;
+  color: var(--brown-dark);
+  background: var(--gold-light);
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 14px 28px;
+  box-shadow: 0 5px 0 var(--brown-light);
+  transition: transform .15s, box-shadow .15s;
+}
+
+.party-box a:hover {
+  transform: translateY(2px);
+  box-shadow: 0 3px 0 var(--brown-light);
+}
+
+.party-box button {
+  font-family: var(--font);
+  font-size: 18px;
+  font-weight: 900;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+
+.finish-line {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 25px 0;
+}
+
+.animal-track {
+  position: relative;
+  width: 100%;
+  height: 70px;
+  background: #fff7e6;
+  border-radius: 18px;
+  border: 2px dashed var(--brown-light);
+  overflow: hidden;
+}
+
+/* הדגל מתחיל למעלה */
+.flag {
+  position: absolute;
+  left: 30px;
+  top: 10px;
+  font-size: 28px;
+  z-index: 2;
+  transition: top 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* כשהחיה מגיעה, הדגל יורד למטה */
+.animal-track.finished .flag {
+  top: 35px;
+}
+
+/* החיה מתחילה מחוץ למסך מימין */
+.animal {
+  position: absolute;
+  right: -60px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 36px;
+  transition: right 2.5s ease-out;
+}
+
+/* ריצת החיה שמאלה */
+.animal-track.animate .animal {
+  right: calc(100% - 90px);
+}
+
+/* עיצוב כרטיסי ההישגים של כולם */
+#resultsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 15px;
+  margin-top: 25px;
+  padding: 10px;
+}
+
+.result-card {
+  background: white;
+  border: 3px solid var(--brown-light);
+  border-radius: 14px;
+  padding: 12px;
+  text-align: center;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.05);
+}
+
+.result-card h3 {
+  font-size: 18px;
+  color: var(--brown-dark);
+  margin-bottom: 6px;
+}
+
+.result-card p {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--brown-mid);
+  margin: 4px 0;
+}
+
+@keyframes runToParty {
+  from {
+    right: 10px;
+  }
+
+  to {
+    right: 82%;
+  }
+}
+
+@keyframes flagDown {
+  from {
+    transform: translateY(-50%) rotate(0deg);
+  }
+
+  to {
+    transform: translateY(15px) rotate(90deg);
+  }
+}
+
+.all-results {
+  margin-top: 30px;
+}
+
+.result-card {
+  background: white;
+  border-radius: 18px;
+  padding: 16px;
+  margin-bottom: 15px;
+  border: 2px solid #f0d37a;
+}
+/* ── ניקוד אחרון בולט ── */
+.final-score-num {
+  font-size: clamp(36px, 7vw, 56px) !important;
+  font-weight: 900;
+  color: var(--brown-dark);
+  letter-spacing: 2px;
+}
+
+/* ── סקשן תוצאות המשתמש הנוכחי ── */
+.my-results-section {
+  background: linear-gradient(135deg, #e8f8ff, #f0f8ff);
+  border: 3px solid #7bc8e8;
+  border-radius: 20px;
+  padding: 20px 18px;
+  margin: 0 0 24px;
+  box-shadow: 0 4px 0 #5aaccf;
+  text-align: right;
+}
+
+.my-results-section h2 {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--brown-dark);
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+.my-results-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.my-result-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(255,255,255,0.85);
+  border: 2px solid #b8dff0;
+  border-radius: 14px;
+  padding: 12px 16px;
+}
+
+.mrc-emoji {
+  font-size: 30px;
+  flex-shrink: 0;
+}
+
+.mrc-info {
+  flex: 1;
+  text-align: right;
+}
+
+.mrc-track {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--brown-dark);
+}
+
+.mrc-score {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--brown-mid);
+  margin: 2px 0;
+}
+
+.mrc-date {
+  font-size: 11px;
+  color: #999;
+}
+
+/* ── לוח שיאים כללי ── */
+.all-results h2 {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--brown-dark);
+  margin-bottom: 14px;
+}
+
+.results-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.result-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: white;
+  border: 2px solid var(--gold);
+  border-radius: 14px;
+  padding: 10px 16px;
+  text-align: right;
+}
+
+.result-card.is-me {
+  background: linear-gradient(135deg, #fffde0, #fff8c0);
+  border-color: var(--gold-light);
+  box-shadow: 0 0 0 3px rgba(255,215,0,0.3);
+}
+
+.rc-rank  { font-size: 18px; flex-shrink: 0; min-width: 28px; }
+.rc-name  { flex: 1; font-size: 14px; font-weight: 800; color: var(--brown-dark); }
+.rc-track { font-size: 13px; color: var(--brown-mid); font-weight: 600; min-width: 80px; }
+.rc-score { font-size: 14px; font-weight: 900; color: var(--brown-dark); min-width: 55px; }
+
+/* ── כפתורי ניווט ── */
+.party-nav {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+.party-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font);
+  font-weight: 900;
+  font-size: 17px;
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 13px 26px;
+  transition: transform .15s, box-shadow .15s;
+  box-shadow: 0 5px 0 rgba(0,0,0,0.15);
+}
+
+.party-btn:hover {
+  transform: translateY(2px);
+  box-shadow: 0 3px 0 rgba(0,0,0,0.15);
+}
+
+.party-btn.green {
+  background: var(--green-mid);
+  color: #fff;
+  box-shadow: 0 5px 0 var(--green-dark);
+}
+
+.party-btn.green:hover { box-shadow: 0 3px 0 var(--green-dark); }
+
+.party-btn.blue {
+  background: #4a9fe0;
+  color: #fff;
+  box-shadow: 0 5px 0 #2a6faa;
+}
+
+.party-btn.blue:hover { box-shadow: 0 3px 0 #2a6faa; }
+
+.no-results {
+  text-align: center;
+  color: #aaa;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 12px 0;
+}
+
+/* body overflow לדף מסיבה שיש בו הרבה תוכן */
+body { overflow-y: auto !important; }

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="he">
+
+<head>
+  <link href="../styles/theme.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>מסיבה בחווה - הוראות המשחק</title>
+  <link href="../styles/instructions.css" rel="stylesheet" />
+  <link href="../styles/topbar.css" rel="stylesheet" />
+  <link href="../styles/responsive.css" rel="stylesheet" />
+</head>
+
+<body>
+  <button class="settings-btn" id="settingsBtn" title="הגדרות">⚙️</button>
+  <div class="settings-menu" id="settingsMenu">
+    <div class="settings-user" id="settingsUser">שלום!</div>
+    <a class="settings-item" href="../index.html">🏠 דף בית</a>
+    <a class="settings-item" href="instructions.html">📖 הוראות</a>
+    <a class="settings-item" href="highscores.html">🏆 שיאים</a>
+    <a class="settings-item" href="results.html">📋 התוצאות שלי</a>
+        <button class="settings-item danger" id="settingsLogout">🚪 התנתקות</button>
+  </div>
+  <div class="corner-logo"><img alt="מוחאחד" src="../assets/logo.png" /></div>
+  <div class="sky-layer">
+    <div class="sun"></div>
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+    <div class="cloud cloud-3"></div>
+  </div>
+  <div class="ground-scene">
+    <!-- Grass blades -->
+    <div class="grass-blade" style="left:5%;height:30px;animation-delay:0s"></div>
+    <div class="grass-blade" style="left:10%;height:22px;animation-delay:0.3s"></div>
+    <div class="grass-blade" style="left:20%;height:28px;animation-delay:0.7s"></div>
+    <div class="grass-blade" style="left:32%;height:25px;animation-delay:0.2s"></div>
+    <div class="grass-blade" style="left:45%;height:32px;animation-delay:0.5s"></div>
+    <div class="grass-blade" style="left:58%;height:20px;animation-delay:0.9s"></div>
+    <div class="grass-blade" style="left:70%;height:26px;animation-delay:0.4s"></div>
+    <div class="grass-blade" style="left:80%;height:29px;animation-delay:0.1s"></div>
+    <div class="grass-blade" style="left:90%;height:24px;animation-delay:0.6s"></div>
+    <!-- Flowers -->
+    <div class="flower" style="left:8%;animation-delay:0s">🌻</div>
+    <div class="flower" style="left:22%;animation-delay:0.5s">🌺</div>
+    <div class="flower" style="left:40%;animation-delay:1s">🌼</div>
+    <div class="flower" style="left:55%;animation-delay:0.3s">🌸</div>
+    <!-- Animals walking -->
+    <div class="animal animal-1">🐄</div>
+    <div class="animal animal-2" style="bottom:120px">🐓</div>
+    <div class="animal animal-3" style="animation-duration:12s">🐑</div>
+    <!-- Butterflies -->
+    <div class="butterfly" style="top:30px; left:30%">🦋</div>
+    <div class="butterfly" style="top:80px; left:60%; animation-delay:-4s; animation-duration:13s">🦋</div>
+    <!-- Barn -->
+    <div class="barn">
+      <div class="barn-roof"></div>
+      <div class="barn-body">
+        <div class="barn-window"></div>
+        <div class="barn-door"></div>
+      </div>
+    </div>
+    <div class="grass"></div>
+  </div>
+  <!-- Music Player -->
+  <div class="music-player" id="player">
+    <button class="music-btn" id="playBtn" onclick="toggleMusic()">▶️</button>
+    <div>
+      <div class="music-label">🎵 מוזיקת חווה</div>
+    </div>
+    <div class="music-bars" id="bars">
+      <div class="bar paused"></div>
+      <div class="bar paused"></div>
+      <div class="bar paused"></div>
+      <div class="bar paused"></div>
+    </div>
+  </div>
+  <audio id="bgMusic" loop="">
+    <source src="../assets/audio/farm_music.mp3" type="audio/mpeg" />
+  </audio>
+  <!-- Main Content -->
+  <div class="container">
+    <div class="title-section">
+      <div class="title-emoji-row">🐄🌾🐓🌻</div>
+      <h1 class="main-title">מסיבה בחווה</h1>
+      <p class="subtitle">📖 הוראות המשחק</p>
+    </div>
+    <div class="card">
+      <h2 class="card-title">🗺️ איך משחקים?</h2>
+      <div class="steps-list">
+        <div class="step">
+          <div class="step-icon">🛤️</div>
+          <div class="step-content">
+            <div class="step-title">בחר מסלול</div>
+            <div class="step-desc">בלוח המשחק ישנם 4 מסלולים לבחירתך. בחר את המסלול שאתה רוצה להתקדם בו!</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-icon">🐾</div>
+          <div class="step-content">
+            <div class="step-title">הכר את החיה שלך</div>
+            <div class="step-desc">כל מסלול מייצג חיה – ובדרכך אתה אוסף אוכל שקשור אליה. לדוגמא: הארנב אוסף גזר! 🥕
+            </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-icon">❓</div>
+          <div class="step-content">
+            <div class="step-title">ענה על השאלה</div>
+            <div class="step-desc">כשנתקלת במאכל של אותה חיה – קופצת שאלה! בחר את התשובה הנכונה מבין 3 אפשרויות.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-icon">🎒</div>
+          <div class="step-content">
+            <div class="step-title">אסוף לתרמיל</div>
+            <div class="step-desc">תשובה נכונה ✅ – המאכל קופץ לתרמיל ואתה צובר נקודה! המשיך לשאלה הבאה.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-icon">❌</div>
+          <div class="step-content">
+            <div class="step-title">תשובה שגויה</div>
+            <div class="step-desc">תשובה שגויה – יופיע סימון אדום וישמע צליל שגיאה. לא נורא! המשך לשאלה הבאה.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-icon">🎪</div>
+          <div class="step-content">
+            <div class="step-title">הגיע לחווה!</div>
+            <div class="step-desc">כשמגיע לחווה – למסיבה! נספרת הכמות שאספת, ואיתה אתה מגיע לחגיגה 🎉</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-icon">🔄</div>
+          <div class="step-content">
+            <div class="step-title">המשך למסלולים הבאים</div>
+            <div class="step-desc">עבור למסלול הבא, שפועל על אותו עיקרון. אחרי כל המסלולים – ראה בכרטיס האישי את סך
+              הצלחותיך!</div>
+          </div>
+        </div>
+      </div>
+      <!-- Scores -->
+      <div class="scores-section">
+        <div class="scores-title">🏆 מה מקבלים בסוף?</div>
+        <div class="score-row score-gold">
+          <div class="score-icon">🥇</div>
+          <div class="score-label">גביע זהב</div>
+          <div class="score-points">12 נקודות</div>
+        </div>
+        <div class="score-row score-silver">
+          <div class="score-icon">🥈</div>
+          <div class="score-label">גביע כסף</div>
+          <div class="score-points">7–11 נקודות</div>
+        </div>
+        <div class="score-row score-bronze">
+          <div class="score-icon">🥉</div>
+          <div class="score-label">שק מטבעות נחושת</div>
+          <div class="score-points">עד 7 נקודות</div>
+        </div>
+      </div>
+      <div class="goodluck">🌟 בהצלחה ומשחק מהנה! 🌟</div>
+      <!-- START BUTTON (נכון בתוך הכרטיס!) -->
+      <div class="start-game-wrap">
+        <button class="start-game-btn" id="startGameBtn">
+          🎮 התחל משחק
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- end card -->
+  <!-- end main -->
+
+  <script src="../scripts/instructions.js"></script>
+</body>
+
+</html>

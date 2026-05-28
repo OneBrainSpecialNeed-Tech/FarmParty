@@ -1,0 +1,158 @@
+/* results.css — דף תוצאות */
+
+body {
+  padding: 80px 16px 40px;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.wrap {
+  width: min(920px, 100%);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* כותרת עליונה */
+.top {
+  background: var(--cream);
+  border: var(--card-border);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  padding: 22px 26px;
+}
+
+.top h1 {
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 900;
+  color: var(--brown-dark);
+  text-shadow: 0 3px 0 rgba(240, 176, 48, 0.35);
+  margin-bottom: 4px;
+}
+
+.top p {
+  font-size: 14px;
+  color: var(--brown-mid);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+/* כרטיס תוכן */
+.card {
+  background: var(--cream);
+  border: var(--card-border);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  padding: 22px 26px;
+}
+
+.card h2 {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--brown-dark);
+  margin-bottom: 16px;
+}
+
+/* שורת כפתורים */
+.back-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font);
+  font-weight: 800;
+  font-size: 15px;
+  color: #fff;
+  background: var(--green-mid);
+  border: none;
+  border-radius: 999px;
+  padding: 10px 20px;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 0 var(--green-dark);
+  transition: transform .15s, box-shadow .15s;
+}
+
+.btn:hover {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 var(--green-dark);
+}
+
+.btn.danger {
+  background: var(--red-soft);
+  box-shadow: 0 4px 0 #a02020;
+}
+
+.btn.danger:hover {
+  box-shadow: 0 2px 0 #a02020;
+}
+
+/* טבלה */
+.tableWrap {
+  overflow-x: auto;
+  border-radius: 14px;
+  margin-top: 12px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 480px;
+}
+
+thead th {
+  background: linear-gradient(135deg, var(--brown-dark), var(--brown-mid));
+  color: #fff;
+  padding: 13px 14px;
+  text-align: right;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+tbody td {
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(240, 176, 48, .2);
+  font-weight: 600;
+  font-size: 14px;
+  text-align: right;
+}
+
+tbody tr:nth-child(even) {
+  background: rgba(255, 248, 220, .6);
+}
+
+tbody tr:hover {
+  background: #fdf0c8;
+}
+
+.hint {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--brown-mid);
+  margin-top: 12px;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 70px 10px 30px;
+  }
+
+  .top,
+  .card {
+    padding: 16px 14px;
+  }
+
+  thead th,
+  tbody td {
+    padding: 9px 8px;
+    font-size: 12px;
+  }
+}

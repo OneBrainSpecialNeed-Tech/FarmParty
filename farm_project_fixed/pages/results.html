@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="he">
+
+<head>
+    <link href="../styles/theme.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>תוצאות - מסיבה בחווה</title>
+    <link href="../styles/results.css" rel="stylesheet" />
+    <link href="../styles/topbar.css" rel="stylesheet" />
+
+    <link href="../styles/responsive.css" rel="stylesheet" />
+</head>
+
+<body>
+    <button class="settings-btn" id="settingsBtn" title="הגדרות">⚙️</button>
+    <div class="settings-menu" id="settingsMenu">
+        <div class="settings-user" id="settingsUser">שלום!</div>
+        <a class="settings-item" href="../index.html">🏠 דף בית</a>
+        <a class="settings-item" href="instructions.html">📖 הוראות</a>
+        <a class="settings-item" href="highscores.html">🏆 שיאים</a>
+        <a class="settings-item" href="results.html">📋 התוצאות שלי</a>
+        <button class="settings-item danger" id="settingsLogout">🚪 התנתקות</button>
+    </div>
+    <div class="corner-logo"><img alt="מוחאחד" src="../assets/logo.png" /></div>
+    <main class="wrap">
+        <header class="top">
+            <h1>תוצאות המשחק 🧺🌾</h1>
+            <p id="who"></p>
+            <div class="back-row">
+                <a class="btn" href="game.html">🎮 שחק שוב</a>
+                <button class="btn danger" id="logout">התנתק</button>
+                <a class="btn" href="../index.html">🏠 דף בית</a>
+            </div>
+        </header>
+        <section class="card">
+            <h2 id="title"></h2>
+            <div class="tableWrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>משתמש</th>
+                            <th>מסלול</th>
+                            <th>ציון</th>
+                            <th>תאריך</th>
+                        </tr>
+                    </thead>
+                    <tbody id="resultsBody"></tbody>
+                </table>
+            </div>
+            <p class="hint" id="empty"></p>
+        </section>
+    </main>
+
+    <script src="../scripts/results.js"></script>
+</body>
+
+</html>

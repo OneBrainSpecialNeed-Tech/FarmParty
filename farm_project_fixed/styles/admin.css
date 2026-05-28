@@ -1,0 +1,273 @@
+/* admin.css — לוח בקרה מנהל */
+
+body {
+  background-attachment: fixed;
+}
+
+/* ── Top Bar ── */
+.top-bar {
+  background: linear-gradient(135deg, var(--brown-dark), var(--brown-mid));
+  color: white;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 0 #2a1408;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.top-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.top-bar img {
+  height: 44px;
+  width: 44px;
+  object-fit: contain;
+  border-radius: 10px;
+  background: white;
+  padding: 2px;
+}
+
+.top-bar h1 {
+  margin: 0;
+  font-size: clamp(17px, 3.5vw, 24px);
+  font-weight: 900;
+  font-family: var(--font);
+}
+
+.top-bar p {
+  margin: 3px 0 0;
+  opacity: .75;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.logout-btn {
+  background: var(--red-soft);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  font-family: var(--font);
+  box-shadow: 0 4px 0 #a02020;
+  transition: transform .12s, box-shadow .12s;
+}
+
+.logout-btn:hover {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #a02020;
+}
+
+/* ── Main wrap ── */
+.admin-wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 24px 16px 60px;
+}
+
+/* ── Stat cards ── */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  background: var(--cream);
+  border: 4px solid var(--gold);
+  border-radius: 22px;
+  padding: 20px 14px;
+  text-align: center;
+  box-shadow: 0 6px 0 var(--brown-light), 0 12px 24px rgba(0, 0, 0, .12);
+  transition: transform .15s;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+}
+
+.stat-card .num {
+  font-size: 38px;
+  font-weight: 900;
+  color: var(--brown-dark);
+  line-height: 1;
+  font-family: var(--font);
+}
+
+.stat-card .ico {
+  font-size: 28px;
+  margin-bottom: 4px;
+}
+
+.stat-card .lbl {
+  font-size: 13px;
+  color: var(--brown-mid);
+  margin-top: 6px;
+  font-weight: 700;
+}
+
+/* ── Section card ── */
+.section-card {
+  background: var(--cream);
+  border: 4px solid var(--gold);
+  border-radius: 24px;
+  box-shadow: 0 8px 0 var(--brown-light), 0 16px 32px rgba(0, 0, 0, .12);
+  margin-bottom: 28px;
+  overflow: hidden;
+}
+
+.section-head {
+  background: linear-gradient(135deg, var(--brown-dark), var(--brown-mid));
+  color: white;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 900;
+  font-family: var(--font);
+}
+
+/* ── Table ── */
+.table-scroll {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 480px;
+}
+
+thead th {
+  background: #f5e6c0;
+  color: var(--brown-dark);
+  padding: 12px 14px;
+  text-align: right;
+  font-size: 13px;
+  font-weight: 800;
+  border-bottom: 3px solid var(--gold);
+  font-family: var(--font);
+}
+
+tbody tr:nth-child(even) {
+  background: rgba(255, 248, 220, .6);
+}
+
+tbody tr:hover {
+  background: #fdf0c8;
+  transition: background .15s;
+}
+
+tbody td {
+  padding: 11px 14px;
+  font-size: 13px;
+  color: var(--brown-dark);
+  border-bottom: 1px solid #f0d8a8;
+  font-weight: 600;
+}
+
+/* Badges */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  font-family: var(--font);
+}
+
+.badge.admin {
+  background: #ffe0a0;
+  color: #7a4000;
+  border: 2px solid var(--gold);
+}
+
+.badge.user {
+  background: #d0f0d0;
+  color: #1a6020;
+  border: 2px solid #60c060;
+}
+
+/* Password reveal */
+.pw-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pw-dots {
+  letter-spacing: 2px;
+  color: #aaa;
+  font-size: 18px;
+}
+
+.pw-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0 2px;
+  color: var(--brown-mid);
+  transition: transform .12s;
+}
+
+.pw-toggle:hover {
+  transform: scale(1.2);
+}
+
+.empty-row td {
+  text-align: center;
+  padding: 28px 20px;
+  color: #aaa;
+  font-size: 15px;
+}
+
+@media (max-width: 600px) {
+
+  .col-pw,
+  .col-display {
+    display: none;
+  }
+
+  .stats-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* עיצוב המבנה הדו-טורי החדש של דף האדמין */
+.admin-grid-container {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  /* טור ימין קבוע 280 פיקסלים, שמאל לוקח את השאר */
+  gap: 20px;
+  align-items: start;
+  margin-top: 20px;
+}
+
+.admin-sidebar-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.admin-main-tables {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* התאמה רספונסיבית לניידים - אם המסך קטן מדי, הם יחזרו להיות אחד מתחת לשני */
+@media (max-width: 768px) {
+  .admin-grid-container {
+    grid-template-columns: 1fr;
+  }
+}

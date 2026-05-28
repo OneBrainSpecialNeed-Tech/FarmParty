@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="he">
+
+<head>
+    <link href="../styles/theme.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>שיאים</title>
+    <link href="../styles/main.css" rel="stylesheet" />
+    <link href="../styles/topbar.css" rel="stylesheet" />
+    <link href="../styles/responsive.css" rel="stylesheet" />
+</head>
+
+<body class="welcome-page">
+    <nav class="topbar" style="display:none"></nav>
+    <button class="settings-btn" id="settingsBtn" title="הגדרות">⚙️</button>
+    <div class="settings-menu" id="settingsMenu">
+        <div class="settings-user" id="settingsUser">שלום!</div>
+        <a class="settings-item" href="../index.html">🏠 דף בית</a>
+        <a class="settings-item" href="instructions.html">📖 הוראות</a>
+        <a class="settings-item" href="highscores.html">🏆 שיאים</a>
+        <a class="settings-item" href="results.html">📋 התוצאות שלי</a>
+        <button class="settings-item danger" id="settingsLogout">🚪 התנתקות</button>
+    </div>
+    <div class="corner-logo"><img alt="מוחאחד" src="../assets/logo.png" /></div>
+
+    <main class="page-card">
+        <h1>שיאים 🌟</h1>
+        <p class="empty" id="empty"></p>
+        <table class="score-table">
+            <thead>
+                <tr>
+                    <th>מקום</th>
+                    <th>שחקן</th>
+                    <th>מסלול</th>
+                    <th>רמה</th>
+                    <th>ציון</th>
+                </tr>
+            </thead>
+            <tbody id="rows"></tbody>
+        </table>
+        <div class="actions"><a href="../index.html">דף פתיחה</a><a href="game.html">משחק</a></div>
+    </main>
+    <script src="../scripts/highscores.js"></script>
+</body>
+
+</html>

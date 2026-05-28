@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="he">
+
+<head>
+    <link href="../styles/theme.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>התחברות / הרשמה - מסיבה בחווה</title>
+    <link href="../styles/auth.css" rel="stylesheet" />
+    <link href="../styles/topbar.css" rel="stylesheet" />
+
+    <link href="../styles/responsive.css" rel="stylesheet" />
+    <link href="../styles/login.css" rel="stylesheet" />
+</head>
+
+<body>
+    <button class="settings-btn" id="settingsBtn" title="הגדרות">⚙️</button>
+    <div class="settings-menu" id="settingsMenu">
+        <div class="settings-user" id="settingsUser">שלום!</div>
+        <a class="settings-item" href="../index.html">🏠 דף בית</a>
+        <a class="settings-item" href="instructions.html">📖 הוראות</a>
+        <a class="settings-item" href="highscores.html">🏆 שיאים</a>
+        <a class="settings-item" href="results.html">📋 התוצאות שלי</a>
+        <button class="settings-item danger" id="settingsLogout">🚪 התנתקות</button>
+    </div>
+    <div class="corner-logo"><img alt="מוחאחד" src="../assets/logo.png" /></div>
+
+
+    <main class="wrap">
+        <header class="top">
+            <h1>מסיבה בחווה 🐮🎉</h1>
+            <p>ברוכים הבאים! התחברו כדי לשחק</p>
+        </header>
+        <!-- מסך ברכה אחרי כניסה מוצלחת -->
+        <section class="card" id="welcomeCard" style="display:none;">
+            <div class="welcome-banner" id="welcomeBanner">
+                <div class="animal-row">🐰🐒🐶🐭</div>
+                <h2 id="helloName">שלום!</h2>
+                <p>מוכן/ה לשחק? בחר/י מסלול ותתחיל!</p>
+                <a class="play-big-btn" href="game.html">▶ התחל לשחק!</a>
+                <div class="switch-user">
+                    <button id="switchUserBtn">החלף משתמש</button>
+                </div>
+            </div>
+        </section>
+        <!-- טפסי התחברות/הרשמה -->
+        <section class="card" id="authCard">
+            <div class="tabs">
+                <button class="tab active" data-tab="login">התחברות</button>
+                <button class="tab" data-tab="register">הרשמה</button>
+            </div>
+            <!-- התחברות -->
+            <form class="panel show" data-panel="login" id="loginForm">
+                <label>
+                    שם משתמש
+                    <input autocomplete="username" id="loginUsername" placeholder="לדוגמה: avishag" required=""
+                        type="text" />
+                </label>
+                <label>
+                    סיסמה
+                    <input autocomplete="current-password" id="loginPassword" placeholder="••••••" required=""
+                        type="password" />
+                </label>
+                <button class="btn primary" type="submit">כניסה למשחק ▶</button>
+                <p class="msg" id="loginMsg"></p>
+            </form>
+            <!-- הרשמה -->
+            <form class="panel" data-panel="register" id="registerForm">
+                <label>
+                    שם משתמש
+                    <input autocomplete="username" id="regUsername" placeholder="שם משתמש ייחודי" required=""
+                        type="text" />
+                </label>
+                <label>
+                    שם תצוגה (כיצד נפנה אליך)
+                    <input id="regDisplayName" placeholder="לדוגמה: אביחי" required="" type="text" />
+                </label>
+                <label>
+                    סיסמה
+                    <input autocomplete="new-password" id="regPassword" minlength="6" placeholder="לפחות 6 תווים"
+                        required="" type="password" />
+                </label>
+                <button class="btn primary" type="submit">צור משתמש</button>
+                <p class="msg" id="regMsg"></p>
+            </form>
+        </section>
+        <nav style="text-align:center; margin-top:10px;">
+            <a href="../index.html" style="color:#5c3b1e; font-weight:700;">← דף בית</a>
+        </nav>
+    </main>
+
+    <script src="../scripts/login.js"></script>
+</body>
+
+</html>

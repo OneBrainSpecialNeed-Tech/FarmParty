@@ -1,0 +1,52 @@
+/* responsive.css */
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .top-bar,
+  .admin-wrap,
+  .party-box,
+  .section-card {
+    width: 95% !important;
+    padding: 16px !important;
+  }
+
+  .stats-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  .table-scroll {
+    overflow-x: auto;
+  }
+
+  table {
+    min-width: 650px;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .finish-line {
+    gap: 14px !important;
+  }
+
+  .animal-track {
+    height: 60px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 22px !important;
+  }
+
+  h2 {
+    font-size: 18px !important;
+  }
+
+  .party-box {
+    padding: 14px !important;
+  }
+}

@@ -1,0 +1,346 @@
+/* main.css — דף בית + שיאים + דפים כלליים */
+
+/* דף בית (index.html) */
+body.home-original {
+  font-family: var(--font);
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 15% 25%, rgba(255, 255, 255, 0.9) 0 18%, transparent 19%),
+    radial-gradient(circle at 75% 20%, rgba(255, 255, 255, 0.85) 0 16%, transparent 17%),
+    linear-gradient(#bfe9ff 0%, #eaf8ff 55%, #d7f6d1 56%, #7fd36a 100%);
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 16px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 5;
+  max-width: 680px;
+  padding: 30px 26px;
+  border-radius: 26px;
+  background: rgba(255, 248, 231, 0.92);
+  backdrop-filter: blur(4px);
+  border: 4px solid rgba(240, 176, 48, 0.4);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.14);
+  text-align: center;
+}
+
+.hero h1 {
+  margin: 0 0 8px;
+  font-size: clamp(34px, 7vw, 58px);
+  font-weight: 900;
+  color: var(--brown-dark);
+  text-shadow: 0 4px 0 rgba(240, 176, 48, 0.5);
+  line-height: 1.1;
+}
+
+.hero p {
+  font-size: 18px;
+  color: var(--brown-mid);
+  font-weight: 700;
+  margin: 4px 0 0;
+}
+
+.start-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 32px;
+  background: var(--gold-light);
+  color: var(--brown-dark);
+  text-decoration: none;
+  border-radius: 999px;
+  font-size: 20px;
+  font-weight: 900;
+  font-family: var(--font);
+  box-shadow: 0 6px 0 var(--brown-light);
+  transition: transform .15s, box-shadow .15s, background .15s;
+}
+
+.start-btn:hover {
+  background: var(--green-mid);
+  color: #fff;
+  transform: translateY(2px);
+  box-shadow: 0 4px 0 var(--green-dark);
+}
+
+.hero-small-links {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.hero-small-links a {
+  font-family: var(--font);
+  color: var(--brown-dark);
+  background: rgba(255, 255, 255, .7);
+  border: 2px solid rgba(92, 59, 30, .2);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  transition: background .15s;
+}
+
+.hero-small-links a:hover {
+  background: var(--gold-pale);
+}
+
+/* SUN */
+.sun {
+  position: absolute;
+  top: 60px;
+  left: 60px;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fff6b0 0 35%, #ffd24d 36% 100%);
+  box-shadow: 0 0 0 14px rgba(255, 210, 77, .25), 0 0 0 28px rgba(255, 210, 77, .15);
+  z-index: 1;
+  animation: sunPulse 4s ease-in-out infinite;
+}
+
+@keyframes sunPulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 14px rgba(255, 210, 77, .25), 0 0 0 28px rgba(255, 210, 77, .15);
+  }
+
+  50% {
+    box-shadow: 0 0 0 20px rgba(255, 210, 77, .35), 0 0 0 40px rgba(255, 210, 77, .18);
+  }
+}
+
+/* CLOUDS */
+.cloud {
+  position: absolute;
+  top: 80px;
+  width: 180px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 999px;
+  z-index: 2;
+}
+
+.cloud::before,
+.cloud::after {
+  content: "";
+  position: absolute;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 50%;
+}
+
+.cloud::before {
+  width: 70px;
+  height: 70px;
+  left: 20px;
+  top: -30px;
+}
+
+.cloud::after {
+  width: 90px;
+  height: 90px;
+  left: 70px;
+  top: -45px;
+}
+
+.c1 {
+  left: -220px;
+  top: 110px;
+  animation: drift 24s linear infinite;
+}
+
+.c2 {
+  left: -260px;
+  top: 180px;
+  transform: scale(0.9);
+  animation: drift 30s linear infinite;
+}
+
+.c3 {
+  left: -300px;
+  top: 70px;
+  transform: scale(0.75);
+  animation: drift 36s linear infinite;
+}
+
+@keyframes drift {
+  from {
+    transform: translateX(0) scale(var(--s, 1));
+  }
+
+  to {
+    transform: translateX(calc(100vw + 520px)) scale(var(--s, 1));
+  }
+}
+
+/* GRASS */
+.grass {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 32vh;
+  background: linear-gradient(#8be26f, #62c24e);
+  z-index: 3;
+}
+
+/* FENCE */
+.fence {
+  position: absolute;
+  left: -2%;
+  right: -2%;
+  bottom: 20vh;
+  height: 90px;
+  z-index: 4;
+  background: repeating-linear-gradient(to right, #caa070 0 18px, #b88957 18px 22px, transparent 22px 60px);
+}
+
+.fence::before,
+.fence::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 18px;
+  background: linear-gradient(#d4aa78, #b88957);
+  border-radius: 10px;
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.06);
+}
+
+.fence::before {
+  top: 18px;
+}
+
+.fence::after {
+  top: 52px;
+}
+
+/* ── דף שיאים (page-card) ── */
+.welcome-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 16px 40px;
+}
+
+.page-card {
+  width: min(720px, 96vw);
+  background: var(--cream);
+  border: var(--card-border);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  padding: clamp(22px, 4vw, 38px);
+  text-align: center;
+}
+
+.page-card h1 {
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 900;
+  color: var(--brown-dark);
+  text-shadow: 0 3px 0 rgba(240, 176, 48, 0.35);
+  margin-bottom: 20px;
+}
+
+/* טבלת שיאים */
+.score-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.score-table th {
+  background: linear-gradient(135deg, var(--brown-dark), var(--brown-mid));
+  color: #fff;
+  padding: 13px 14px;
+  text-align: right;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.score-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(240, 176, 48, .22);
+  text-align: right;
+  font-weight: 600;
+}
+
+.score-table tbody tr:nth-child(even) {
+  background: rgba(255, 248, 220, .7);
+}
+
+.score-table tbody tr:hover {
+  background: #fdf0c8;
+  transition: background .15s;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 22px;
+  flex-wrap: wrap;
+}
+
+.actions a {
+  font-family: var(--font);
+  font-weight: 800;
+  font-size: 16px;
+  color: var(--brown-dark);
+  background: var(--gold-light);
+  padding: 11px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 4px 0 var(--brown-light);
+  transition: transform .15s, box-shadow .15s;
+}
+
+.actions a:hover {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 var(--brown-light);
+}
+
+.empty {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--brown-mid);
+  padding: 20px 0;
+}
+
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: clamp(26px, 7vw, 42px);
+  }
+
+  .hero-content {
+    padding: 18px 14px;
+  }
+
+  .start-btn {
+    font-size: 16px;
+    padding: 12px 22px;
+  }
+
+  .hero-small-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .page-card {
+    padding: 18px 14px;
+  }
+}

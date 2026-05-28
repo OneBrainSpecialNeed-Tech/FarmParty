@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>מסיבת הסיום 🎉</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="../styles/theme.css" rel="stylesheet" />
+  <link href="../styles/main.css" rel="stylesheet" />
+  <link href="../styles/topbar.css" rel="stylesheet" />
+  <link href="../styles/responsive.css" rel="stylesheet" />
+  <link href="../styles/party.css" rel="stylesheet" />
+</head>
+<body>
+
+  <button class="settings-btn" id="settingsBtn" title="הגדרות">⚙️</button>
+  <div class="settings-menu" id="settingsMenu">
+    <div class="settings-user" id="settingsUser">שלום!</div>
+    <a class="settings-item" href="../index.html">🏠 דף בית</a>
+    <a class="settings-item" href="instructions.html">📖 הוראות</a>
+    <a class="settings-item" href="highscores.html">🏆 שיאים</a>
+    <a class="settings-item" href="results.html">📋 התוצאות שלי</a>
+    <button class="settings-item danger" id="settingsLogout">🚪 התנתקות</button>
+  </div>
+  <div class="corner-logo"><img alt="מוחאחד" src="../assets/logo.png" /></div>
+
+  <div class="party-box">
+
+    <!-- כותרת -->
+    <h1>🎉 כל החיות הגיעו למסיבה! 🎉</h1>
+
+    <!-- אנימציה -->
+    <div class="finish-line">
+      <div class="animal-track"><div class="flag">🏁</div><div class="animal">🐵</div></div>
+      <div class="animal-track"><div class="flag">🏁</div><div class="animal">🐭</div></div>
+      <div class="animal-track"><div class="flag">🏁</div><div class="animal">🐰</div></div>
+      <div class="animal-track"><div class="flag">🏁</div><div class="animal">🐶</div></div>
+    </div>
+
+    <!-- ניקוד אחרון -->
+    <div class="score-box">
+      <h2>✨ הניקוד שלך במשחק האחרון</h2>
+      <p id="finalScore" class="final-score-num">0/12</p>
+    </div>
+
+    <!-- תוצאות המשתמש הנוכחי -->
+    <div class="my-results-section">
+      <h2>📋 כל התוצאות שלי</h2>
+      <div id="myResultsList" class="my-results-list"></div>
+    </div>
+
+    <!-- לוח שיאים כללי -->
+    <div class="all-results">
+      <h2>🏆 לוח שיאים — TOP 10</h2>
+      <div id="resultsList" class="results-grid"></div>
+    </div>
+
+    <!-- כפתורי ניווט -->
+    <div class="party-nav">
+      <a class="party-btn green" href="game.html">🎮 שחק שוב</a>
+      <a class="party-btn blue" href="../index.html">🏠 דף בית</a>
+    </div>
+
+  </div>
+
+  <script src="../scripts/party.js"></script>
+</body>
+</html>
