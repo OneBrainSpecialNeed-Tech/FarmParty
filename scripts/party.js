@@ -105,6 +105,6 @@ function renderAllResults(allResults) {
 }
 
 function getAnimalEmoji(track) {
-  const m = { rabbit:'🐰', cow:'🐮', sheep:'🐑', chicken:'🐓', pig:'🐷', dog:'🐶', mouse:'🐭', monkey:'🐵' };
+  const m = { rabbit:'🐰', cow:'🐮', sheep:'🐑', chicken:'🐔', pig:'🐷', dog:'🐶', mouse:'🐭', monkey:'🐵' };
   return m[track] || '🐾';
 }

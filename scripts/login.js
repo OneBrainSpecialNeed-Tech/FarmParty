@@ -90,7 +90,7 @@ document.getElementById('loginForm').addEventListener('submit', e => {
   const user     = users.find(u => u.username.toLowerCase() === username.toLowerCase());
 
   if (!user || user.password !== password) {
-    return setMsg('loginMsg', 'לא מחובר ! , נא עבור להרשמה', 'err');
+    return setMsg('loginMsg', 'שם משתמש או סיסמה שגויים.', 'err');
   }
 
   writeJSON(SESSION_KEY, {
